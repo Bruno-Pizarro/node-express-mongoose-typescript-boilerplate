@@ -13,7 +13,7 @@ export const createProduct = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const getProducts = catchAsync(async (req: Request, res: Response) => {
-  const filter = pick(req.query, ['name', 'role']);
+  const filter = pick(req.query, ['name']);
   const options: IOptions = pick(req.query, ['sortBy', 'limit', 'page', 'projectBy']);
   const result = await productService.queryProducts(filter, options);
   res.send(result);
